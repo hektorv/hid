@@ -36,3 +36,39 @@ particularly welcome. The reference implementation is in Python; any
 port should produce identical outputs given the same `(secret,
 root_id, parent_id)` inputs (HID64) or `(secret, parent_id)` inputs
 (HUUID), modulo the random suffix.
+
+## Development
+
+To work on the reference implementations from source:
+
+```sh
+git clone https://github.com/hektorv/hid.git
+cd hid
+
+# Editable install of either subproject
+cd hid64        # or:  cd huuid
+pip install -e .
+
+# Run the test suite
+PYTHONPATH=src/python python -m unittest discover -s tests/python
+```
+
+To build distribution artifacts (sdist + wheel):
+
+```sh
+pip install build
+cd hid64        # or:  cd huuid
+python -m build
+# produces dist/<package>-1.0.0.tar.gz
+# and      dist/<package>-1.0.0-py3-none-any.whl
+```
+
+Maintainers publishing a release to PyPI:
+
+```sh
+pip install twine
+python -m twine upload dist/*
+```
+
+The repository builds with no platform-specific code; the resulting
+wheel is `py3-none-any` and works on any platform with Python ≥ 3.8.

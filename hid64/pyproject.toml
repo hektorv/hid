@@ -3,18 +3,46 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "hid64"
+name = "hierarchical-id64"
 version = "1.0.0"
 description = "Hierarchical 64-bit identifiers with HMAC-derived prefixes for stateless local validation."
-readme = { file = "../README.md", content-type = "text/markdown" }
-license = { file = "../LICENSE" }
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { file = "LICENSE" }
 authors = [{ name = "Héctor Villa" }]
 requires-python = ">=3.8"
 dependencies = ["cryptography>=41"]
+keywords = [
+    "identifier",
+    "hierarchical",
+    "hmac",
+    "cryptography",
+    "distributed-systems",
+    "multi-tenant",
+    "uuid",
+    "stateless-validation",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP",
+]
 
 [project.urls]
+Homepage = "https://github.com/hektorv/hid"
 Specification = "https://github.com/hektorv/hid/blob/main/hid64/specs/HID64-spec-v1.0.md"
 Source = "https://github.com/hektorv/hid"
+Issues = "https://github.com/hektorv/hid/issues"
 
 [tool.setuptools]
 py-modules = ["hid64"]
