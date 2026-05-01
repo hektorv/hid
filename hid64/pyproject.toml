@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hid64"
+version = "1.0.0"
+description = "Hierarchical 64-bit identifiers with HMAC-derived prefixes for stateless local validation."
+readme = { file = "../README.md", content-type = "text/markdown" }
+license = { file = "../LICENSE" }
+authors = [{ name = "Héctor Villa" }]
+requires-python = ">=3.8"
+dependencies = ["cryptography>=41"]
+
+[project.urls]
+Specification = "https://github.com/hektorv/hid/blob/main/hid64/specs/HID64-spec-v1.0.md"
+Source = "https://github.com/hektorv/hid"
+
+[tool.setuptools]
+py-modules = ["hid64"]
+package-dir = { "" = "src/python" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+pythonpath = ["src/python"]

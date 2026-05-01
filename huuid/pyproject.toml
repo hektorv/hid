@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "huuid"
+version = "1.0.0"
+description = "Hierarchical UUID (UUIDv8-compatible, RFC 9562) with HMAC-derived prefixes for stateless local validation."
+readme = { file = "../README.md", content-type = "text/markdown" }
+license = { file = "../LICENSE" }
+authors = [{ name = "Héctor Villa" }]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.urls]
+Specification = "https://github.com/hektorv/hid/blob/main/huuid/spec/HUUID-spec-v1.0.md"
+Source = "https://github.com/hektorv/hid"
+
+[tool.setuptools]
+py-modules = ["huuid"]
+package-dir = { "" = "src/python" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+pythonpath = ["src/python"]

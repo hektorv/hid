@@ -1,0 +1,23 @@
+Non-Goals and Design Tradeoffs
+
+HUUID and HID64 are not intended to replace traditional relational validation or foreign key enforcement. Their design addresses specific needs in distributed systems, but comes with tradeoffs.
+❌ Non-Goals
+
+    Not a replacement for database constraints:
+    These formats do not eliminate the need for database-level referential integrity.
+
+    Not universally required:
+    Systems that always enforce access and structure via relational lookups may not benefit from hierarchical validation.
+
+    Not a cryptographic access control:
+    While they offer tamper-evident structure, they do not replace full authentication/authorization mechanisms.
+
+⚖️ Design Tradeoffs
+Tradeoff	Implication
+Stateless validation	Reduces database queries but relies on secure key management
+Embedded hierarchy (HMAC)	Prevents ID forgery but leaks no parent structure
+No revocation mechanism	Once issued, IDs cannot be revoked unless tracked externally
+Key rotation complexity	Requires tracking or encoding rotation metadata (optional)
+Optional by design	Useful in stateless, distributed, or multi-tenant systems — not required
+These tradeoffs are deliberate: the formats are designed for environments where decentralization, efficiency, and tamper resistance are valuable, not where strong consistency or centralized validation already exists.
+

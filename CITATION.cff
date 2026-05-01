@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you reference HID64 or HUUID in academic or technical work, please cite this repository."
+title: "HID64 and HUUID: Hierarchical Identifier Formats with Cryptographic Local Validation"
+abstract: >-
+  HID64 and HUUID are two hierarchical identifier formats that bind a
+  child identifier to its parent (and, for HID64, to a previously
+  authenticated root) via HMAC-SHA256, allowing local validation of
+  hierarchical relationships without database lookups. HUUID is a
+  128-bit UUIDv8-compatible identifier (RFC 9562); HID64 is a compact
+  64-bit variant.
+authors:
+  - family-names: Villa
+    given-names: Héctor
+license: MIT
+version: "1.0.0"
+date-released: "2026-04-30"
+repository-code: "https://github.com/hektorv/hid"
+keywords:
+  - uuid
+  - cryptography
+  - hierarchical-identifiers
+  - distributed-systems
+  - hmac
+  - rfc-9562
+  - multi-tenant
+  - identifier
