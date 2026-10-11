@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bola-gateway"
+version = "0.1.0"
+description = "A perimeter against BOLA: Nginx asks a validator whether the HUUID chain in a URL belongs to the caller."
+requires-python = ">=3.12"
+dependencies = [
+    "hierarchical-uuid",
+    "httpx>=0.27",
+    "pyjwt>=2.8",
+    "starlette>=0.37",
+    "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+dev = ["mypy>=1.10", "pytest>=8", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "SIM", "RUF"]
+ignore = ["S101"]
+
+[tool.mypy]
+strict = true
+mypy_path = "../huuid/src/python"
+
+[[tool.mypy.overrides]]
+module = "huuid"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Starlette's test client still runs on httpx; the warning is about a future switch.
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient`"]
